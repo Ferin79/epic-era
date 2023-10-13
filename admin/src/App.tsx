@@ -4,8 +4,9 @@ import { User as FirebaseUser } from 'firebase/auth';
 import { Authenticator, FirebaseCMSApp } from 'firecms';
 import { useCallback } from 'react';
 import 'typeface-rubik';
-import { HistoryCollection } from './collections/histories.tsx';
+import { TimelineCollection } from './collections/timelines.tsx';
 import { firebaseConfig } from './firebase-config.ts';
+import { EmpireCollection } from './collections/empires.tsx';
 
 export default function App() {
   const myAuthenticator: Authenticator<FirebaseUser> = useCallback(
@@ -29,7 +30,7 @@ export default function App() {
       name={'Epic Era'}
       plugins={[dataEnhancementPlugin]}
       authentication={myAuthenticator}
-      collections={[HistoryCollection]}
+      collections={[TimelineCollection, EmpireCollection]}
       firebaseConfig={firebaseConfig}
     />
   );
